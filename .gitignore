@@ -1,1 +1,2 @@
+#ignoring the node_modules directory so that it cant be tracked by git tool
 node_modules/
