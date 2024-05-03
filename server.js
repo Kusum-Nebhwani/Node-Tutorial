@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const db = require('./db');
-
+require('dotenv').config{};
 
 
 
@@ -24,6 +24,6 @@ app.use('/person',personRoutes);
 const menuRoutes = require('./routes/menuRoutes');
 app.use('/menu',menuRoutes);
 
-app.listen(3000,()=>{
+app.listen(PORT,()=>{
     console.log("server started")
 })
