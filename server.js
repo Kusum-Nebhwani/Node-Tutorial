@@ -25,17 +25,17 @@ app.use(logRequest);
 const localAuthMiddleware = passport.authenticate('local',{session:false});
 
 
-app.get('/',localAuthMiddleware,function(req,res){
-    res.send("Welcome to My Hotel...How can I help you ?")
+app.get('/',function(req,res){
+     res.send("Welcome to My Hotel...How can I help you ?");
 })
 
 
 
 const personRoutes = require('./routes/personRoutes');
-app.use('/person',localAuthMiddleware,personRoutes);
+app.use('/person',personRoutes);
 
 const menuRoutes = require('./routes/menuRoutes');
-app.use('/menu',localAuthMiddleware,menuRoutes);
+app.use('/menu',menuRoutes);
 
 app.listen(PORT,()=>{
     console.log("server started")
