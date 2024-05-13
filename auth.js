@@ -6,7 +6,7 @@ const person = require('./models/Person');
 passport.use(new LocalStrategy(async(Username,password,done)=>{
     try{
         console.log("Received Credentials: ",Username,password);
-        const user = await person.findOne({username: Username});
+        const user = await person.findOne({username});
         if(!user){
             return done(null,false,{message : "Incorrect Username"});
         }
@@ -21,6 +21,6 @@ passport.use(new LocalStrategy(async(Username,password,done)=>{
     }catch(err){
           return done(err);
     }
-}))
+}));
 
 module.exports = passport;
